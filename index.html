@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><title>Secure Notes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{font-family:sans-serif;max-width:900px;margin:1rem auto;padding:0 1rem}section{border:1px solid #ccc;padding:.7rem;margin:.7rem 0}
+input,textarea{display:block;margin:.2rem 0;width:100%;box-sizing:border-box}.item{border-top:1px solid #eee;padding:.3rem 0}.err{color:#b00}.hidden{display:none}button{margin-right:.3rem}</style>
+</head>
+<body>
+<h1>Secure Notes</h1>
+<div id="msg" class="err"></div>
+
+<section id="auth">
+  <h3>Login / Register</h3>
+  <input id="a-name" placeholder="Name (register only)">
+  <input id="a-email" placeholder="Email" type="email">
+  <input id="a-pass" placeholder="Password (8+ chars)" type="password">
+  <input id="a-int" placeholder="Interests, comma separated (register only)">
+  <button id="btn-login">Login</button><button id="btn-register">Register</button>
+</section>
+
+<div id="app" class="hidden">
+  <p><b id="who"></b> <button id="btn-logout">Logout</button></p>
+
+  <section><h3>Profile interests</h3>
+    <input id="p-int" placeholder="chess, reading"><button id="btn-int">Save interests</button></section>
+
+  <section><h3>My notes</h3>
+    <input id="n-title" placeholder="Title"><textarea id="n-content" placeholder="Content"></textarea>
+    <button id="btn-note">Add note</button><div id="notes"></div></section>
+
+  <section><h3>Posts</h3>
+    <input id="po-title" placeholder="Post title"><textarea id="po-body" placeholder="Body"></textarea>
+    <button id="btn-post">Publish post</button>
+    <input id="po-uid" placeholder="User id to view posts of"><button id="btn-posts">View posts</button><div id="posts"></div></section>
+
+  <div id="admin" class="hidden">
+    <section><h3>Admin: users</h3>
+      <input id="u-name" placeholder="Name"><input id="u-email" placeholder="Email"><input id="u-pass" placeholder="Password" type="password">
+      <select id="u-role"><option>user</option><option>admin</option></select><button id="btn-user">Add user</button>
+      <div id="users"></div></section>
+    <section><h3>Admin: all notes</h3><div id="allnotes"></div></section>
+    <section><h3>Admin: users grouped by interest</h3><div id="groups"></div></section>
+  </div>
+</div>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
